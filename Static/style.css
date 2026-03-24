@@ -1,0 +1,252 @@
+        @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+            body {
+                cursor: none !important;
+    background-color: #06ffffc9; /* Deixa o fundo do site escuro */
+    display: flex;             /* Ferramenta mágica para centralizar */
+    justify-content: center;   /* Centraliza na horizontal */
+    align-items: center;       /* Centraliza na vertical */
+    height: 100vh;             /* Faz o site usar a altura toda da tela */
+    margin: 0;
+    /* Troque o link entre aspas pelo link do seu GIF favorito */
+    background-image: url('https://i.pinimg.com/originals/40/0f/00/400f007bade76022eb839fdbb5acf646.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Isso faz o fundo ficar parado enquanto você rola */
+    backdrop-filter: blur(1px);
+   }
+.card-container {
+  perspective: 1000px; 
+}
+
+.avatar { 
+    width: 200px;
+    height: auto;
+}
+
+.cartao {
+ /* 1. COR BRANCA COM TRANSPARÊNCIA (o 0.1 é a opacidade) */
+    background: transparent; 
+    background-color: rgba(0, 0, 0, 0.1);
+    
+    /* 2. O DESFOQUE (faz o fundo parecer vidro jateado) */
+    backdrop-filter: blur(200px);
+    
+    /* 3. BORDA FININHA (dá profundidade) */
+    border: 1px solid rgba(153, 0, 255, 0.959);
+    
+    /* Mantenha o que já tínhamos */
+    padding: 30px;
+    border-radius: 25px;
+    width: 350px;
+    text-align: center;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-weight: bold;
+    
+    /* ... o código que você já tem (background, blur, etc) ... */
+
+    /* ISSO DIZ AO NAVEGADOR: "Toda mudança aqui deve levar 0.5 segundos e ser suave" */
+ /* ... seus outros estilos (background, glass, etc) ... */
+    transition: transform 0.s ease-out; /* Velocidade da resposta do mouse */
+    
+    transform-style: preserve-3d;
+    perspective: 500px; /* Quanto menor, mais 3D parece */
+
+}
+
+#name {
+    font-size: 25px;
+    margin: 0px 0px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.842);
+    color: rgb(32, 167, 167);
+
+}
+
+#country {
+    color: rgba(208, 255, 0, 0.849) ;
+}
+
+#cursor-costumizado {
+width: 84px;               /* Tamanho da largura */
+  width: 84px;
+height: 84px;
+background-image: url('CURSOR/CURSOR.gif');
+background-size: contain;
+background-repeat: no-repeat;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 9999;
+pointer-events: none !important;
+image-rendering: pixelated;
+transform: translate(-50%, -50%);  z-index: 9999;             /* Garante que ele fique na frente de tudo */
+
+    
+    /* Mantém os pixels nítidos (estilo Pixel Art) */
+    image-rendering: pixelated; 
+    
+    /* Centraliza o ponto de clique no meio da imagem */
+    transform: translate(-50%, -50%);
+    
+    /* Opcional: deixa o movimento mais suave */
+    transition: transform 0.05s linear;
+}
+
+.musica-container, .cartao, button, a, .badge {
+    pointer-events: auto !important;
+    position: relative; /* Isso ajuda o navegador a priorizar o clique aqui */
+    z-index: 10; /* Coloca os botões um pouco à frente do fundo */
+}
+
+#cursor-costumizado.clicavel {
+ width: 54px;               /* Tamanho da largura */
+  width: 54px;
+  height: 54px;
+ background-image: url('CURSOR/CURSOR2 (2).png'); 
+transition: transform 0.2s ease; 
+cursor: none !important;
+}
+
+.badges {
+    color: rgb(7, 39, 99);
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin-bottom: 20px;
+}
+.badge {
+    background: rgba(8, 181, 187, 0.575);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.capa-musica {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+.musica-nome {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Corta o texto se for muito longo */
+    border: #294bbb;
+}
+.musica-container {
+    background: rgba(0, 0, 0, 0.3); /* Fundo mais escuro para destacar */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: left;
+    margin-top: 15px;
+    border: 1px solid #a020f0; /* Borda roxa sólida */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Brilho em volta */
+    
+}
+/* A barrinha de tempo da música */
+.barra-progresso {
+    width: 100%;
+    height: 6px;
+    background: rgba(253, 251, 251, 0.233);
+    border-radius: 2px;
+}
+.progresso-atual {
+    width: 65%; /* Aqui você controla o quanto a barra está cheia */
+    height: 100%;
+    background: #ff5a08ee;
+    border-radius: 2px;
+}
+
+.link-musica {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit;       /* Faz o link usar a mesma cor do texto do cartão */
+}
+.link-musica:hover {
+    text-decoration: underline; /* Só aparece o sublinhado quando passa o mouse */
+    filter: brightness(1.2);    /* Dá um leve brilho no texto ao passar o mouse */
+}
+.tempo-texto {
+    color: rgba(222, 0, 0, 0.982);
+    font-size: 11px;
+    margin-top: 5px;
+    font-family: monospace; /* Fonte estilo código fica massa */
+    text-align: right;      /* Alinha os minutos na direita da barra */
+    justify-content: space-between;
+}
+
+
+.musica-container {
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    padding: 12px; 
+    border-radius: 15px;
+    text-align: left;
+   
+    
+    /* Configuração 3D */
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+
+    /* A animação controla o espaço agora */
+    animation: flutuarMusica 5s ease-in-out infinite; 
+}
+
+/* Criamos uma animação específica para a música para controlar o espaço */
+@keyframes flutuarMusica {
+    0%, 100% { 
+        margin-top: 40px; /* Distância normal entre os dois */
+    }
+    50% { 
+        margin-top: 25px; /* Ele sobe um pouco, diminuindo o espaço */
+    }
+}
+.cartao {
+    width: 350px;
+    padding: 30px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.2); 
+    backdrop-filter: blur(15px);
+   border: 1px solid #9d00ff93; /* Borda roxa sólida */
+    box-shadow: 0 0 10px rgba(0, 209, 199, 0.4); /* Brilho em volta */
+    color: rgb(218, 21, 21);
+    text-align: center;
+    font-family: "Sedgwick Ave Display", cursive;
+
+    /* Configuração para o 3D */
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+
+    /* A mola que faz ele boiar (igual à da música) */
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+/* Certifique-se que a animação usa margin-top */
+@keyframes flutuar {
+    0%, 100% { margin-top: 10px; }
+    50% { margin-top: -15px; }
+}
+
+
+@keyframes mudarCor {
+  0% { color: rgb(0, 255, 115); }
+  50% { color: rgb(238, 255, 0); }
+  100% { color: rgb(179, 255, 0); }
+}
+#DOOM {
+  animation: mudarCor 5s infinite;
+      cursor: none !important;
+
+}
+#status-icone {
+    cursor: none !important;
+}
+.musica-container *{
+    cursor: none !important;
+}
