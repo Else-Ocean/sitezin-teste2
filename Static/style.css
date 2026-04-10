@@ -67,19 +67,18 @@
 }
 
 #cursor-costumizado {
-width: 84px;               /* Tamanho da largura */
-  width: 84px;
-height: 84px;
-background-image: url('CURSOR/CURSOR.gif');
-background-size: contain;
-background-repeat: no-repeat;
-position: fixed;
-top: 0;
-left: 0;
-z-index: 9999;
-pointer-events: none !important;
-image-rendering: pixelated;
-transform: translate(-50%, -50%);  z-index: 9999;             /* Garante que ele fique na frente de tudo */
+    width: 84px;
+    height: 84px;
+    background-image: url('CURSOR/CURSOR.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none !important; /* IMPORTANTE: para o clique atravessar ele e chegar na barra */
+    image-rendering: pixelated;
+    transform: translate(-50%, -50%);
 
     
     /* Mantém os pixels nítidos (estilo Pixel Art) */
@@ -151,8 +150,12 @@ cursor: none !important;
 .barra-progresso {
     width: 100%;
     height: 6px;
-    background: rgba(253, 251, 251, 0.233);
-    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 15px 0;
+    cursor: pointer; /* Mostra a mãozinha do mouse */
+    position: relative;
+    overflow: hidden;
 }
 .progresso-atual {
     width: 65%; /* Aqui você controla o quanto a barra está cheia */
@@ -248,5 +251,28 @@ cursor: none !important;
     cursor: none !important;
 }
 .musica-container *{
-    cursor: none !important;
+    cursor: none !important; }
+
+    #botaoPlay {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s;
+}
+
+#botaoPlay:hover {
+    background: rgba(117, 5, 5, 0.434);
+    transform: scale(1.1);
+}
+#barraRoxa {
+    /* Mudei para transição de 0.1s para não ficar atrasado quando você pula a música */
+    transition: width 0.1s linear; 
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <audio id="playerAudio" preload="auto">
+    <audio id="playerAudio" loop>
         <source src="Static/MUSIC/hoecakes.mp3" type="audio/mpeg">
     </audio>
 
@@ -41,9 +41,9 @@
             </a>
         </div>
         
-        <div class="barra-progresso" style="background: rgb(235, 235, 235); height: 6px; width: 100%; border-radius: 10px; overflow: hidden;">
-            <div id="barraRoxa" style="width: 0%; height: 100%; background: #05aa36f6; transition: width 0.1s linear;"></div>
-        </div>
+<div id="containerBarra" class="barra-progresso" style="background: rgb(235, 235, 235); height: 6px; width: 100%; border-radius: 10px; overflow: hidden; cursor: pointer;">
+    <div id="barraRoxa" style="width: 0%; height: 100%; background: #05aa36f6; transition: width 0.1s linear;"></div>
+</div>
 
         <div style="color: rgb(231, 231, 231); font-size: 10px; margin-top: 4px; font-family: monospace; display: flex; justify-content: space-between;">
             <span id="tempo-atual">0:00</span>
