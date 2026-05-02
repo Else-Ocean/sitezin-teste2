@@ -127,3 +127,10 @@ document.addEventListener('mouseenter', () => {
 // 8. FEEDBACK DE CLIQUE NO CURSOR
 document.addEventListener('mousedown', () => { cursor.classList.add('clicando'); });
 document.addEventListener('mouseup', () => { cursor.classList.remove('clicando'); });
+
+containerBarra.addEventListener('mousedown', (e) => {
+    arrastando = true;
+    musicaCard.style.transform += " scale(0.98)"; // Dá uma leve "encolhida" no card ao clicar
+    buscarPosicao(e);
+});
+

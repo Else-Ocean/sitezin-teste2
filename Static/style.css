@@ -2,7 +2,7 @@
 
             body {
                 cursor: none !important;
-    background-color: #06ffffc9; /* Deixa o fundo do site escuro */
+    background-color: #6403bea5; /* Deixa o fundo do site escuro */
     display: flex;             /* Ferramenta mágica para centralizar */
     justify-content: center;   /* Centraliza na horizontal */
     align-items: center;       /* Centraliza na vertical */
@@ -67,28 +67,29 @@
 }
 
 #cursor-costumizado {
-    width: 84px;
-    height: 84px;
-    background-image: url('CURSOR/CURSOR.gif');
+    width: 99px;%;
+    height: 8%;
+    
+    /* Usando uma imagem PNG (parada) para não dar erro de carregamento */
+    background-image: url('CURSOR/CURSOR.gif'); 
+    
     background-size: contain;
     background-repeat: no-repeat;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
-    pointer-events: none !important; /* IMPORTANTE: para o clique atravessar ele e chegar na barra */
+    pointer-events: none !important;
+    
+    /* Mantém a nitidez */
     image-rendering: pixelated;
     transform: translate(-50%, -50%);
-
     
-    /* Mantém os pixels nítidos (estilo Pixel Art) */
-    image-rendering: pixelated; 
-    
-    /* Centraliza o ponto de clique no meio da imagem */
-    transform: translate(-50%, -50%);
-    
-    /* Opcional: deixa o movimento mais suave */
+    /* Suaviza o rastro do gato */
     transition: transform 0.05s linear;
+    
+    /* Garante que ele apareça */
+    display: block !important;
 }
 
 .musica-container, .cartao, button, a, .badge {
@@ -121,8 +122,8 @@ cursor: none !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .capa-musica {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     border-radius: 8px;
     margin-right: 12px;
 }
@@ -210,8 +211,8 @@ cursor: none !important;
     }
 }
 .cartao {
-    width: 350px;
-    padding: 30px;
+    width: 450px;
+    padding: 79px;
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.2); 
     backdrop-filter: blur(15px);
@@ -238,9 +239,9 @@ cursor: none !important;
 
 
 @keyframes mudarCor {
-  0% { color: rgb(0, 255, 115); }
-  50% { color: rgb(238, 255, 0); }
-  100% { color: rgb(179, 255, 0); }
+  1% { color: rgb(255, 0, 102); }
+  50% { color: rgb(255, 255, 255); }
+  100% { color: rgb(255, 179, 0); }
 }
 #DOOM {
   animation: mudarCor 5s infinite;
@@ -275,4 +276,80 @@ cursor: none !important;
 #barraRoxa {
     /* Mudei para transição de 0.1s para não ficar atrasado quando você pula a música */
     transition: width 0.1s linear; 
+}
+
+/* A barra de fundo (cinza) */
+.barra-progresso {
+    width: 100%;
+    height: 6px !important; /* Altura padrão */
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px;
+    margin: 15px 0;
+    cursor: none !important;
+    position: relative;
+    transition: height 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+/* DESTAQUE: Quando o mouse passa ou quando está arrastando */
+.barra-progresso:hover, 
+.barra-progresso.active {
+    height: 10px !important; /* Engrossa bem para destacar */
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* A barra que enche */
+#barraRoxa:after {
+    width: 0%;
+    height: 100%;
+    background: #05aa36f6 !important; /* Seu verde original */
+    border-radius: 10px;
+    pointer-events: none; /* O clique passa por ela e vai para a barra principal */
+    transition: width 0.1s linear;
+
+}
+
+/* BRILHO quando selecionado */
+.barra-progresso.active #barraRoxa {
+    background: #00ff51 !important;
+    box-shadow: 0 0 15px #f80a0a !important;
+}
+
+/* 1. O PAI (Barra Cinza) precisa deixar a bolinha aparecer */
+#containerBarra {
+    overflow: visible !important; /* ISSO É O MAIS IMPORTANTE */
+    position: relative;
+}
+
+/* 2. O FILHO (Barra Verde/Roxa) */
+#barraRoxa {
+    position: relative;
+    overflow: visible !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Garante que a bolinha fique na ponta direita */
+}
+
+/* 3. A BOLINHA (Usando o seletor ::after) */
+#barraRoxa::after {
+    content: ""; /* Necessário para o elemento existir */
+    position: absolute;
+    right: -7px; /* Metade do tamanho da bolinha para centralizar no fim */
+    
+    /* Tamanho e Estilo */
+    width: 14px; 
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    
+    /* Sombra para dar profundidade */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+}
+
+/* 4. MOSTRAR A BOLINHA quando passar o mouse ou arrastar */
+#containerBarra:hover #barraRoxa::after,
+.barra-progresso.active #barraRoxa::after {
+    transform: scale(1); /* Ela cresce e aparece */
 }
